@@ -1,0 +1,112 @@
+import java.util.Scanner;
+    public class Contact implements Comparable<String>
+{
+private String contact_name;
+private String phone_num;
+private String email;
+private String address;
+private String birthday;
+private String notes;
+
+public Contact(){
+}
+
+public Contact(String contact_name, String phone_num, String email, String address, String birthday, String notes) {
+contact_name = contact_name;
+phone_num = phone_num;
+email = email;
+address = address;
+birthday = birthday;
+notes = notes;
+}
+
+public Contact(Contact c) {
+contact_name = c.contact_name;
+phone_num = c.phone_num;
+email = c.email;
+address = c.address;
+birthday = c.birthday;
+notes = c.notes;
+
+
+}
+
+public String getContact_name(){
+return contact_name;
+}
+
+public String getPhone_num(){
+return phone_num;
+}
+
+public String getEmail(){
+return email;
+}
+
+public String getAddress(){
+return address;
+}
+
+public String getBirthday(){
+return birthday;
+}
+
+public String getNotes(){
+return notes;
+}
+
+public void setContact_name(String contact_name){
+contact_name = contact_name;
+}
+
+public void setPhone_num(String phone_num){
+phone_num = phone_num;
+}
+
+public void setEmail(String email){
+email = email;
+}
+
+public void setAddress(String address){
+address = address;
+}
+
+public void setBirthday(String birthday){
+birthday = birthday;
+}
+
+public void setNotes(String notes){
+notes = notes;
+}
+
+public int compareTo(String cn){
+return contact_name.compareTo(cn);
+}
+
+public void read_contact(){
+Scanner read = new Scanner(System.in);
+System.out.println("Enter the contact's name: ");
+contact_name = read.nextLine();
+System.out.println("Enter the contact's phone number: ");
+phone_num= read.nextLine();
+System.out.println("Enter the contact's email address: ");
+email = read.nextLine();
+System.out.println("Enter the contact's address: ");
+address= read.nextLine();
+System.out.println("Enter the contact's birthday: ");
+birthday= read.nextLine();
+System.out.println("Enter any notes for the contact: ");
+notes= read.nextLine();
+}
+
+public void display_contact(){
+System.out.println("Name: " + contact_name);
+System.out.println("Phone number: " + phone_num);
+System.out.println("Email address: " + email);
+System.out.println("Address: " + address);
+System.out.println("Birthday: " + birthday);
+System.out.println("Notes: " + notes);
+
+}
+
+}
