@@ -1,0 +1,180 @@
+public class Phonebook {
+static LinkedList<Contact>contacts;
+
+ public Phonebook ()
+{
+contacts=new LinkedList<Contact>();
+}
+
+public Phonebook (LinkedList<Contact> contacts) {
+this.contacts = contacts;
+}
+
+public void Add_Sorted_user (Contact d)
+{
+if (contacts.isEmpty())
+{
+contacts.insert(d);
+return;
+}
+
+else
+{
+contacts. FindFirst();
+if (d.compareTo (contacts.retrieve ().getContact_name()) <0)
+{
+Contact c=new Contact (contacts.retrieve ());
+contacts.update (d);
+contacts.insert (c);
+return;
+}
+else{
+while (!contacts. last () && (contacts.retrieve ().compareTo (d.getContact_name()) <=0)) {
+ contacts.findNext();
+}
+if (contacts.retrieve ().compareTo(d.getContact_name())>0)
+{
+Contact c=new Contact (contacts.retrieve ());
+contacts.update (d);
+contacts.insert (c);
+}
+else{
+d.display_contact();
+contacts.insert (d);
+}
+
+
+
+public boolean search (Contact c)
+{
+}
+if (contacts.isEmpty())
+return false;
+contacts. FindFirst();
+while (!contacts.last())
+{
+if (contacts.retrieve ().getContact_name ().equals (c.getContact_name()) || contacts.retrieve ().getPhone_num().equals (c.getPhone_num())) 
+return true;
+contacts.findNext();
+}
+if (contacts.retrieve ().getContact_name().equals (c.getContact_name()) || contacts.retrieve ().getPhone_num().equals (c.getPhone_num())) 
+return true;
+else
+return false;
+}
+
+public void add_contact (Contact c)
+{
+boolean found=search (c);
+if (!found)
+{
+contacts.Add _Sorted1(c);
+}
+
+
+
+public void delete_contact (String n)
+{
+if (contacts.isEmpty()) {
+}
+System.out.println("Empty List can not delete");
+return;
+}
+contacts. FindFirst();
+while (!contacts.last())
+{
+if (contacts.retrieve ().getContact_name ().equals (n)) {
+contacts.remove();
+System.out.println (n+" contact deleted");
+return;
+}
+contacts.findNext();
+}
+if (contacts.retrieve ().getContact_name ().equals (n)) {
+contacts.remove();
+System.out.println (n+" contact deleted");
+}
+else
+System.out.println("can not be deleted bec it is not exist");
+}
+
+
+public LinkedList<Contact> search_by_First_name (String n)
+{
+if (contacts.isEmpty())
+return null;
+contacts. FindFirst();
+while (! contacts. last ())
+{
+if (contacts.retrieve ().getContact_name ().equals (n)) return contacts.retrieve ();
+contacts.findNext();
+}
+if (contacts. retrieve ().getContact_name ().equals (n)) return contacts.retrieve ();
+return null;
+}
+
+
+public LinkedList<Contact> search_by_Email (String em)
+LinkedList<Contact>res= new LinkedList<Contact>(); 
+if (contacts.isEmpty())
+return res;
+contacts. FindFirst();
+while (!contacts. last ())
+{
+if (contacts.retrieve ().getEmail().equals (em))
+res. insert (contacts.retrieve ());
+contacts.findNext();
+}
+if (contacts.retrieve ().getEmail ().equals (em)) res.insert (contacts.retrieve ());
+return res;
+}
+
+
+public LinkedList<Contact> search_by_Address (String ad)
+LinkedList<Contact>res= new LinkedList<Contact>();
+if (contacts.isEmpty())
+return res;
+contacts. FindFirst();
+while (!contacts.last())
+{
+if (contacts. retrieve ().getAddress().equals (ad))
+res.insert(contacts.retrieve ());
+contacts.findNext();
+}
+if (contacts.retrieve ().getAddress().equals (ad)) res.insert (contacts.retrieve ());
+return res;
+}
+
+
+
+public LinkedList<Contact> search_by_Birth (String Bi)
+LinkedList<Contact>res= new LinkedList<Contact>();
+if (contacts.isEmpty())
+return res;
+contacts. FindFirst();
+while (!contacts.last())
+{
+if (contacts.retrieve ().getBirthday ().equals (Bi))
+res.insert(contacts.retrieve());
+contacts.findNext();
+}
+if (contacts.retrieve ().getBirthday ().equals (Bi))
+res.insert(contacts.retrieve());
+return res;
+}
+
+
+public LinkedList<Contact> search_by_Phone (String ph)
+LinkedList<Contact>res= new LinkedList<Contact>();
+if (contacts.isEmpty())
+return res;
+contacts. FindFirst();
+while (!contacts. last ())
+{
+if (contacts.retrieve ().getPhone_num().equals (ph))
+res.insert (contacts.retrieve ());
+contacts.findNext();
+}
+if (contacts.retrieve ().getPhone_num().equals (ph)) res.insert (contacts.retrieve ());
+return res;
+}
