@@ -1,0 +1,57 @@
+////Added methods for schedulling Events/// 
+
+public boolean is_conflict (Event e, Contact c) { 
+
+LinkedList<Event>contact_events=c.contact_events; 
+
+//or //LinkedList<Event>contact_eventsc.Event_in_contact.events_in_event; 
+
+
+
+
+
+if (contact_events.isEmpty()){ 
+
+// System.out.println("empty");
+
+ return false; 
+
+//no conflict bec there is not any Events with this contact 
+
+} 
+
+
+
+
+
+//System.out.println("c="+c); contact_events.display(); //
+
+contact_events. FindFirst(); 
+
+
+
+while (!contact_events.last()) 
+
+{ if (e.getEvent_date().equals(contact_events.retrieve().getEvent_date()) &&e.getEvent_time().equals (contact_events. retrieve () .getEvent_time () ))
+
+return true ;//there is a conflict 
+
+contact_events.findNext(); 
+
+}
+
+ if (e.getEvent_date().equals (contact_events. retrieve ().getEvent_date()) &&e.getEvent_time().equals(contact_events.retrieve ().getEvent_time () ) )
+
+
+
+ return true; //there is a conflict else return false; //there is not any conflict
+
+
+
+
+
+else 
+
+return false;
+
+}
