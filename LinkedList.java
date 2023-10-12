@@ -1,3 +1,17 @@
+
+class Node<T>{
+
+public T data:
+
+public Node <> next;
+
+public Node (T d)
+{
+next=null;
+data=d;
+}
+
+
 public class LinkedList<T>
 {
 private Node<T> Head;
