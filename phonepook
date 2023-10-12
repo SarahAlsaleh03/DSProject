@@ -1,0 +1,393 @@
+ackage datastructures;
+import java.util.Scanner;
+public class Phonebook {
+static LinkedList<Contact>contacts;
+static LinkedList<Event>events;
+
+ public Phonebook ()
+{
+contacts=new LinkedList<Contact>();
+}
+
+public Phonebook (LinkedList<Contact> contacts) {
+this.contacts = contacts;
+}
+
+public void Add_Sorted_contact (Contact d)
+{
+if (contacts.isEmpty())
+{
+contacts.insert(d);
+return;
+}
+
+else
+{
+contacts. FindFirst();
+if (d.compareTo (contacts.retrieve ().getContact_name()) <0)
+{
+Contact c=new Contact (contacts.retrieve ());
+contacts.update (d);
+contacts.insert (c);
+return;
+}
+else{
+while (!contacts. last () && (contacts.retrieve ().compareTo (d.getContact_name()) <=0)) {
+ contacts.findNext();
+}
+if (contacts.retrieve ().compareTo(d.getContact_name())>0)
+{
+Contact c=new Contact (contacts.retrieve ());
+contacts.update (d);
+contacts.insert (c);
+}
+else{
+d.display_contact();
+contacts.insert (d);
+}}}}
+
+public void Add_Sorted_event (Event t)
+{
+if (contacts.isEmpty())
+{
+contacts.insert(t);
+return;
+}
+else
+{
+contacts. FindFirst();
+if (d.compareTo (contacts.retrieve ().getContact_name()) <0)
+{
+Contact c=new Contact (contacts.retrieve ());
+contacts.update (d);
+contacts.insert (c);
+return;
+}
+else{
+while (!contacts. last () && (contacts.retrieve ().compareTo (d.getContact_name()) <=0)) {
+ contacts.findNext();
+}
+if (contacts.retrieve ().compareTo(d.getContact_name())>0)
+{
+Contact c=new Contact (contacts.retrieve ());
+contacts.update (d);
+contacts.insert (c);
+}
+else{
+d.display_event();
+contacts.insert (d);
+}}}}
+
+
+
+
+public boolean search (Contact c)
+{
+if (contacts.isEmpty())
+return false;
+contacts. FindFirst();
+while (!contacts.last())
+{
+if (contacts.retrieve ().getContact_name ().equals (c.getContact_name()) || contacts.retrieve ().getPhone_num().equals (c.getPhone_num())) 
+return true;
+contacts.findNext();
+}
+if (contacts.retrieve ().getContact_name().equals (c.getContact_name()) || contacts.retrieve ().getPhone_num().equals (c.getPhone_num())) 
+return true;
+else
+return false;
+}
+
+public void add_contact (Contact c)
+{
+boolean found=search (c);
+if (!found)
+contacts.Add_Sorted_contact(c);
+
+}
+
+public void delete_contact (String n)
+{
+if (contacts.isEmpty()) {
+System.out.println("Empty List can not delete");
+return;
+}
+contacts. FindFirst();
+while (!contacts.last())
+{
+if (contacts.retrieve ().getContact_name ().equals (n)) {
+contacts.remove();
+System.out.println (n+" contact deleted");
+return;
+}
+contacts.findNext();
+}
+if (contacts.retrieve ().getContact_name ().equals (n)) {
+contacts.remove();
+System.out.println (n+" contact deleted");
+}
+else
+System.out.println("can not be deleted bec it is not exist");
+}
+
+
+
+
+
+public Contact search_by_name (String n){
+Contact res= new Contact(); if (contacts.isEmpty())
+return null;
+contacts. FindFirst();
+while (!contacts.last())
+{
+if (contacts.retrieve ().getContact_name().equals (n))
+return contacts.retrieve();
+contacts.findNext();
+}
+if (contacts.retrieve ().getContact_name().equals (n)) 
+  return contacts.retrieve();
+return res;}
+
+
+
+
+
+public LinkedList<Contact> search_by_Phone (String ph){
+LinkedList<Contact>res= new LinkedList<Contact>();
+if (contacts.isEmpty())
+return res;
+contacts. FindFirst();
+while (!contacts. last ())
+{
+if (contacts.retrieve ().getPhone_num().equals (ph))
+  
+res.insert (contacts.retrieve ());
+contacts.findNext();
+}
+if (contacts.retrieve ().getPhone_num().equals (ph)) res.insert (contacts.retrieve ());
+return res;
+}
+
+
+public Contact search_by_Email (String em){
+    
+Contact res= new Contact(); 
+if (contacts.isEmpty())
+return null;
+contacts. FindFirst();
+while (!contacts. last ())
+{
+if (contacts.retrieve ().getEmail().equals (em))
+return contacts.retrieve();
+contacts.findNext();
+}
+if (contacts.retrieve ().getEmail ().equals (em)) 
+return contacts.retrieve();
+return res;
+}
+
+public Contact search_by_Address (String ad){
+    
+Contact res= new Contact();
+if (contacts.isEmpty())
+return null;
+contacts. FindFirst();
+while (!contacts.last())
+{
+if (contacts. retrieve ().getAddress().equals (ad))
+return contacts.retrieve ();
+contacts.findNext();
+}
+if (contacts.retrieve ().getAddress().equals (ad))
+   return contacts.retrieve ();
+return null;
+}
+
+
+
+
+public Contact search_by_Birth (String Bi){
+Contact res= new Contact();
+if (contacts.isEmpty())
+return res;
+contacts. FindFirst();
+while (!contacts.last())
+{
+if (contacts.retrieve ().getBirthday ().equals (Bi))
+return contacts.retrieve();
+contacts.findNext();
+}
+if (contacts.retrieve ().getBirthday ().equals (Bi))
+return contacts.retrieve();
+return res;
+}
+
+public Contact search_by_First_name (String n)
+{
+if (contacts.isEmpty())
+return null;
+contacts. FindFirst();
+while (! contacts. last ())
+{
+if (contacts.retrieve ().getContact_name ().equals (n))
+    return contacts.retrieve();
+contacts.findNext();
+}
+if (contacts.retrieve().getContact_name().equals (n)) 
+    return contacts.retrieve();
+return null;
+}
+
+
+public static void print_all_contacts (Phonebook phl)
+{
+if (phl.contacts.isEmpty()) { 
+    System.out.println("empty List");
+}
+else
+{
+phl.contacts. FindFirst();
+while (!phl.contacts.last())
+{
+phl.contacts.retrieve () .display_contact();
+System.out.println("");
+phl.contacts.findNext();
+}
+phl.contacts.retrieve () .display_contact();
+System.out.println("");
+
+}
+}
+
+public static void print_Linked_List_contacts_by_name (LinkedList<Contact>L)
+{
+if (L.isEmpty()) { System.out.println("empty List");}
+else
+{
+L. FindFirst();
+while (!L.last())
+{
+}
+System.out.println(L. retrieve ().getContact_name()); System.out.println("");
+L. findNext();
+System.out.println (L. retrieve ().getContact_name()); System.out.println("");
+}
+}
+
+public void print_Linked_List_of_Events (LinkedList<Event> L)
+{
+if (L.isEmpty()) { 
+   System.out.println("empty List");}
+else
+{
+L. FindFirst();
+while (!L.last())
+{
+//
+System.out.println (L. retrieve ());
+System.out.println("this event has the following contacts");
+L. retrieve ().contacts_with_event.display();
+//print_Linked_List_contacts_by_name (L.retrieve ().contacts_with_event);
+System.out.println("");
+L. findNext();
+System.out.println (L. retrieve ());
+System.out.println("this event has the following contacts");
+print_Linked_List_contacts_by_name(L.retrieve().contacts_with_event);
+System.out.println("");
+}
+}
+}
+
+public boolean Search_Event(String title) {
+if(events.isEmpty())
+    return false;
+return true;
+}
+
+
+public Event search_Event_by_Title(String n)
+{
+if (events.isEmpty())
+return null;
+events. FindFirst();
+while (!events.last())
+{
+if (events.retrieve ().getEvent_title().equals (n)) return events. retrieve ();
+events.findNext();
+}
+if(events.retrieve().getEvent_title().equals(n))
+return events. retrieve();
+return null;
+}
+
+
+public void add_Event (Event e){
+Event found= search_Event_by_Title (e.getEvent_title());
+if (found== null){
+events.Add_Sorted_event(e);
+}
+}
+
+
+
+public LinkedList<Event> getEvents_in_cntact (String n)
+{
+Contact this_contact= search_by_name (n);
+if (this_contact!=null)
+return this_contact.getContact_events();
+return new LinkedList<Event>();
+}
+
+public LinkedList<Contact> getContacts_in_Event(String n)
+{
+Event this_Event=search_Event_by_Title (n);
+if (this_Event!=null)
+return this_Event.getContacts_with_event();
+return new LinkedList<Contact>();
+}
+
+
+public boolean is_conflict (Event e, Contact c) { 
+
+LinkedList<Event>contact_events=c.contact_events; 
+
+//or //LinkedList<Event>contact_eventsc.Event_in_contact.events_in_event; 
+
+if (contact_events.isEmpty()){ 
+
+// System.out.println("empty");
+
+ return false; 
+
+//no conflict bec there is not any Events with this contact 
+
+} 
+//System.out.println("c="+c); contact_events.display(); //
+
+contact_events. FindFirst(); 
+
+
+
+while (!contact_events.last()) 
+
+{ if (e.getEvent_date().equals(contact_events.retrieve().getEvent_date()) &&e.getEvent_time().equals (contact_events. retrieve () .getEvent_time () ))
+
+return true ;//there is a conflict 
+
+contact_events.findNext(); 
+
+}
+
+ if (e.getEvent_date().equals (contact_events. retrieve ().getEvent_date()) &&e.getEvent_time().equals(contact_events.retrieve ().getEvent_time () ) )
+
+
+
+ return true; //there is a conflict else return false; //there is not any conflict
+
+else 
+
+return false;
+
+}
+}
+
