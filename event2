@@ -1,0 +1,94 @@
+public class Event {
+    
+private String Event_title;
+private String Event_date;
+private String Event_time;
+private String Event_location;
+private String Contact_name;
+private Contact contact_involved_in_this_event;
+public LinkedList<Event>events_in_event= new LinkedList<Event>();
+public LinkedList<Contact>contacts_with_event= new LinkedList<Contact>();
+
+public Event(String Event_title){
+this.Event_title = Event_title;
+}
+
+public Event(String Event_title, String Event_date, String Event_time, String Event_location, String Contact_name){
+this.Event_title = Event_title;
+this.Event_date = Event_date;
+this.Event_time = Event_time;
+this.Event_location = Event_location;
+this.Contact_name = Contact_name;
+}
+
+public String getContact_name(){
+return Contact_name;
+}
+
+public Contact getContact(){
+return contact_involved_in_this_event;
+}
+
+public String getEvent_title(){
+return Event_title;
+}
+
+public String getEvent_date(){
+return Event_date;
+}
+
+public String getEvent_time(){
+return Event_time;
+}
+
+public String getEvent_location(){
+return Event_location;
+}
+
+public Contact getContact_involved_in_this_event(){
+return contact_involved_in_this_event;
+}
+
+public void setContact_name(String Contact_name){
+this.Contact_name = Contact_name;
+}
+
+public void setCont(Contact con){
+contact_involved_in_this_event = con;
+}
+
+public void setContact_involved_in_this_event(Contact contact_involved_in_this_event){
+this.contact_involved_in_this_event = contact_involved_in_this_event;
+}
+
+public void setEvent_title(String Event_title){
+this.Event_title = Event_title;
+}
+
+public void setEvent_date(String Event_date){
+this.Event_date = Event_date;
+}
+
+public void setEvent_location(String Event_location){
+this.Event_location = Event_location;
+}
+
+public String toString(){
+return "Event" + "Event title: " + Event_title + ", Event date:" + Event_date + ", Event time: " + Event_time + "Event location:" + Event_location + "Contact name:" + Contact_name ;
+}
+
+public LinkedList<Event> getEvents_in_event(){
+return events_in_event;
+}
+ 
+public LinkedList<Contact> getContacts_with_event(){
+return contacts_with_event;
+}
+
+    int compareTo(String contact_name) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+ 
+
+
+}    
