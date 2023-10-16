@@ -1,0 +1,74 @@
+public class Contact implements Comparable<String>
+{
+private String contact_name;
+private String phone_num;
+private String email;
+private String address;
+private String birthday;
+private String notes;
+public Event Event_in_contact;
+public LinkedList<Event>contact_events=new LinkedList<Event>();
+
+public Contact(String contact_name, String phone_num, String email, String address, String birthday, String notes) {
+this.contact_name = contact_name;
+this.phone_num = phone_num;
+this.email = email;
+this.address = address;
+this.birthday = birthday;
+this.notes = notes;
+}
+
+public Contact(Contact c) {
+this.contact_name = c.contact_name;
+this.phone_num = c.phone_num;
+this.email = c.email;
+this.address = c.address;
+this.birthday = c.birthday;
+this.notes = c.notes;
+
+
+}
+
+public String getContact_name(){
+return contact_name;
+}
+
+public String getPhone_num(){
+return phone_num;
+}
+
+public String getEmail(){
+return email;
+}
+
+public String getAddress(){
+return address;
+}
+
+public String getBirthday(){
+return birthday;
+}
+
+public String getNotes(){
+return notes;
+}
+
+public void setContact_name(String contact_name){
+this.contact_name = contact_name;
+}
+
+public void setPhone_num(String phone_num){
+this.phone_num = phone_num;
+}
+
+public void setEmail(String email){
+this.email = email;
+}
+
+    @Override
+    public int compareTo(String o) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+
+}
