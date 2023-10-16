@@ -1,0 +1,110 @@
+
+import java.util.Scanner;
+
+public class Dsproj {
+
+  
+    public static void main(String[] args) {
+
+Phonebook ph1=new Phonebook () ;
+Scanner read=new Scanner (System. in) ;
+int ch=-1, search_option=-1;
+do{
+menu();
+ch=read.nextInt());
+switch (ch) {
+case 1:
+test_Add (ph1);
+//tes15Add (phl)
+break;
+case 2: 
+    search_criteria_for_searching(); 
+    search_option-read.nextInt();
+    read.nextLine(); 
+    LinkedList<Contact>res=new LinkedList<Contact>();
+    switch (search_option) { 
+        case 1: 
+            System.out.print ("Enter the contact's name:");
+     Contact c1=ph1.search_by_name (read.nextLine()); 
+     c1.display_contact(); 
+     break; 
+        case 2:
+            System.out.print ("Enter the contact's phone:");
+            Contact c2=ph1.search_by_Phone (read.nextLine());
+            c2.display_contact();
+            break;
+        case 3: System.out.print ("Enter the contact's Email:"); 
+        res=ph1.search_by_Email (read.nextLine());
+        if (!res.isEmpty()) { 
+            System.out.println("contact Found!");
+        print_Linked_List_of_all_contacts (res);
+        else 
+        System.out.println ("contact not Found!");
+        break; 
+        case 4:
+        System.out.print ("Enter the contact's Address:"); 
+        res=ph1.search_by_Address(input.nextLine () );
+        if(!res.isEmpty ()) 
+        { System.out.printIn ("contact Found!");
+        print_Linked_List_of_all_contacts(res);
+        
+        } 
+         else 
+         System.out.printin ("contact not Found!");
+         break;
+         case 5:
+         System.out.print ("Enter the contact's Birthday:"); 
+         res=ph1.search_by_Birth(input.nextLine()); 
+         if(!res.isEmpty ()) { 
+         System.out.println ("contact Found!");
+         print_Linked_List_of_all_contacts(res);
+        } 
+        else 
+        System.out.println ("contact not Found!");
+        break; }
+        
+        break;
+// searching break; case 3: input.nextLine(); System.out.print ("Enter the contact's name:"); phl.delete_contact(input.nextLine()) ; break; case 4: //schedule case 6: print_All_all_contacts(ph1); break; case 7: ph1.print_Linked_List_of_Events(all_events); break; case 8: input.nextLine(); System.out.println("Enter contact name:"); } }while(ch!= 8); }// main }// class
+    }}}
+
+
+////////////////////////
+    public static void menu() {
+    System.out.println("Welcome to the Linked Tree Phonebook!"); 
+    System.out.println("Please choose an option:"); 
+    System.out.println("1. Add a contact"); 
+    System.out.println("2. Search for a contact"); 
+    System.out.println("3. Delete a contact"); 
+    System.out.println("4. Schedule an event"); 
+    System.out.println("5. Print event details"); 
+    System.out.println("6. Print all contacts by first name");
+    System.out.println("7. Print all events alphabetically"); 
+    System.out.println("8.print all events for some contact"); 
+    System.out.println("9.print all contactss for some Event");
+    System.out.println("12. Exit");
+System.out.println("\nEnter your choice:");}
+    
+public static void search_criteria_for_searching() { 
+    System.out.println("Enter search criteria: \n" + "1. IName\n" + "2. Phone Number\n" + "3. Email Address\n" + "4. Address\n" + "5. Birthday");
+} 
+public static void search_criteria_for_printing_event_details(){}
+
+public static void print_Linked_List_of_all_contacts (LinkedList<Contact>l) {
+    if (L.isEmpty()) {System.out.println("empty List");}
+    else 
+    { L.FindFirst();
+    while (!L.last())
+    {
+        L.retrieve().display_contact();
+    System.out.println("");
+    L. findNext(); 
+    }
+    L.retrieve ().display_contact(); 
+    System.out.println("");
+    } 
+} 
+public static void print_Linked_List_contacts_by_name (LinkedList<Contact>L{}
+
+
+}
+    
